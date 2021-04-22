@@ -41,13 +41,7 @@ z=1
 while not(z % 2) == 0:  # Input how many nodes
     variable = input('Insert the number of nodes for the graph (Node number must be even): ')
     z = int(variable)
-"""
-z = randint(10,60)   # This z was made for testing only (picks a random
-while (z % 2) == 1:
-    z = randint(6,6)
-    if (z % 2) == 0:
-        break
-"""
+
 G = nx.random_regular_graph(3,z) # create a random graph with z nodes and every node has a degree of 3
 B = nx.adjacency_matrix(G, nodelist=range(z))
 B1 = B.todense()        #creates the adjacency matrix of the graph (B1)
@@ -61,16 +55,6 @@ for node in G.nodes():      #creates a color map list with only white color
 
 list_of_colors = ['brown','m','magenta','yellow','green','blue','red'] # this is the list of the colors we are going to use to random choice for every coloring of the graph
 
-"""
-
-a = randint(1,edges) # a is a random number smaller or equal to the number of the edges (so it picks a random edge)   # this part of code was made only for testing (picks a random edge)
-element1 = [lis[0] for lis in G.edges]
-element2 = [lis[1] for lis in G.edges]
-
-edge1 = element1[a-1]
-edge2 = element2[a-1]
-
-"""
 pos = nx.spring_layout(G) #this a variable we use so the graph stays in the same position with every plot otherwise every node is printed in a random location (still the same graph but easier to compare when its colored and uncolored
 edges = G.number_of_edges() # number of edges
 e=0
